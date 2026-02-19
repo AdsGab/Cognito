@@ -1,4 +1,4 @@
-const canvas = document.getElementById('ganeCanvas');
+const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const ui = document.getElementById('ui');
 
