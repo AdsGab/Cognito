@@ -1,4 +1,4 @@
-const express = require('epress');
+const express = require('express');
 const http = require('http');
 const { Server } = require ("socket.io");
 const World = require ('./World');
@@ -28,7 +28,7 @@ io.on('connection', (socket)=>{
 // Runs at 10 ticks per second 
 setInterval(()=> {
     const gameState = world.tick();
-    io.emit('state_update', gamestate);
+    io.emit('state_update', gameState);
 }, 1000/world.tickRate);
 
 const PORT = process.env.PORT|| 3000;

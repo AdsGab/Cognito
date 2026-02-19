@@ -6,7 +6,7 @@ class World {
     }
 
     //Initialize a dummy agent for testing
-    Init(){
+    init(){
         this.agents["agent_01"] = {
             id: "agent_01",
             x: 100,
@@ -34,4 +34,4 @@ class World {
     }
 }
 
-modul.exports = World;
+module.exports = World;
