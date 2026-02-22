@@ -23,14 +23,13 @@
   },
   "homepage": "https://github.com/AdsGab/Cognito#readme",
   "dependencies": {
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "mongoose": "^9.2.1",
     "socket.io": "^4.8.3",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
-  },"scripts": {
-  "start": "node src/server/index.js",
-  "dev": "nodemon src/server/index.js"
-}
+  }
 }
