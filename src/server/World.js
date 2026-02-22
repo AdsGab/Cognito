@@ -1,3 +1,4 @@
+const Agent = require('./systems/Agent');
 class World {
     constructor(){
         this.agents = {}; //Map of ID -> Agent Data
@@ -7,13 +8,8 @@ class World {
 
     //Initialize a dummy agent for testing
     init(){
-        this.agents["agent_01"] = {
-            id: "agent_01",
-            x: 100,
-            y: 100,
-            color: "red"
-        };
-        console.log("World Initialized.");
+        this.agents["agent_01"] = new Agent("agent_01",100,100,{fastMetabolism:true});
+        console.log("World Initialized. Agents spawned.");
     }
 
     tick(){
@@ -21,11 +17,9 @@ class World {
         const delta = (now -this.lastUpdate)/ 1000;
         this.lastUpdate = now;
 
-        const agent = this.agents["agent_01"];
-        if (agent){
-            agent.x += Math.cos(now/500) *2;
-            agent.y += Math.sin(now/500) *2;
-        }
+        Object.values(this.agents).forEach(agent=> {
+            agent.update(delta);
+        })
 
         return {
             agents: this.agents,

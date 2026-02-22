@@ -31,13 +31,21 @@ function render() {
     Object.values(agents).forEach(agent => {
         ctx.fillStyle = agent.color || 'white';
         ctx.beginPath();
-        ctx.arc(agent.x, agent.y, 10, 0, Math.PI *2);
+        ctx.arc(agent.x, agent.y, 10, 0, Math.PI * 2);
         ctx.fill();
-
+        
         // Draw ID label
         ctx.fillStyle = "white";
-        ctx.font = "10px monospace";
-        ctx.fillText(agent.id, agent.x -15, agent.y -15);
+        ctx.font = "12px monospace";
+        ctx.fillText(agent.id, agent.x - 15, agent.y - 15);
+
+        // Draw Hunger Level
+        // Check if agent.needs exists before drawing to prevent crashes
+        if (agent.needs) {
+            ctx.fillStyle = "#ffaa00";
+            ctx.font = "10px monospace";
+            ctx.fillText(`Hunger: ${Math.floor(agent.needs.hunger)}`, agent.x - 15, agent.y + 22);
+        }
     });
 }
 
